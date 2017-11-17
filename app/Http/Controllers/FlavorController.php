@@ -15,8 +15,9 @@ class FlavorController extends Controller
     public function index()
     {
         $flavors = Flavor::all();
+        $comboOption = $this->generateNewFlavorCombo();
 
-        return View('flavors', compact('flavors'));
+        return View('flavors', compact('flavors', 'comboOption'));
     }
 
     /**
@@ -85,7 +86,8 @@ class FlavorController extends Controller
         //
     }
 
-    public function generateNewFlavorCombo(){
+    public function generateNewFlavorCombo()
+    {
         $flavors = Flavor::all();
         $maxFlavors = $flavors->count();
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Flavor;
 
 class FlavorController extends Controller
 {
@@ -13,7 +14,9 @@ class FlavorController extends Controller
      */
     public function index()
     {
-        //
+        $flavors = Flavor::all();
+
+        return View('flavors', compact('flavors'));
     }
 
     /**
@@ -80,5 +83,16 @@ class FlavorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function generateNewFlavorCombo(){
+        $flavors = Flavor::all();
+        $maxFlavors = $flavors->count();
+
+        $firtFlavor = $flavors[rand(0, $maxFlavors-1)];
+        $secondFlavor = $flavors[rand(0, $maxFlavors-1)];
+        
+        $newCombroString = $firtFlavor->name." com ".$secondFlavor->name;
+        return $newCombroString;
     }
 }

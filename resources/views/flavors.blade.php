@@ -9,12 +9,14 @@
         {{ $comboOption }}
     </div>
 
-    <div class="links">
+    <H2>R$ 5,00</H2>
+
+    <!-- <div class="links">
         <h3>Sabores</h3>
         @foreach ($flavors as $flavor)
             <a href=""> {{ $flavor->name }}</a>
         @endforeach
-    </div>
+    </div> -->
 </div>
 </div>
 
